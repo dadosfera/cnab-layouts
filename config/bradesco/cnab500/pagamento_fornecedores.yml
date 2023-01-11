@@ -1,0 +1,326 @@
+  # FORMATO: BANCO BRADESCO - FEBRABAN CNAB400
+  # OBJETIVO DO ARQUIVO: PAGAMENTO A FORNECEDORES
+  #
+  # TAMANHO DO REGISTRO
+  # O Tamanho do Registro é de 500 bytes.
+  #
+  # ALINHAMENTO DE CAMPOS
+  # - Campos Numéricos (9) = Sempre à direita e preenchidos com zeros à esquerda.
+  # - Campos Alfanuméricos (X) = Sempre à esquerda e preenchidos com brancos à direita. 
+  #
+  servico: 'pagamento_fornecedores'
+
+  versao: '16'
+
+  layout: 'cnab500'
+
+  remessa:
+    header_arquivo:
+      tipo_registro:
+        pos: [1,1]
+        picture: '9(1)'
+        default: '0'
+        required: true
+      codigo_comunicacao:
+      # Identificação da empresa no banco
+      # Campo fornecido pelo Bradesco. Mais informações "no comentário" da página
+      # 18.
+        pos: [2,9]
+        picture: '9(8)'
+        required: true
+      tipo_inscricao_pagadora:
+        pos: [10,10]
+        picture: '9(1)'
+        required: true
+      numero_inscricao_pagadora:
+        # Número de inscrição da empresa pagadora (CPF/CNPJ)
+        pos: [11,19]
+        picture: '9(9)'
+        required: true
+      identificador_filial_pagadora:
+        pos: [20,23]
+        picture: '9(4)'
+        required: false
+      verificador_pagadora:
+        # Digito verificador
+        pos: [24,25]
+        picture: '9(2)'
+        required: true
+      nome_empresa_pagadora:
+        pos: [26,65]
+        picture: 'X(40)'
+        required: true
+      tipo_servico:
+        # Código 20: Representa o serviço pagamento a fornecedores
+        pos: [66,67]
+        picture: '9(2)'
+        default: '20'
+        required: true
+      origem_arquivo:
+        pos: [68,68]
+        picture: '9(1)'
+        required: true
+        default: '1'
+      numero_remessa:
+        pos: [69,73]
+        picture: '9(5)'
+        required: true
+      data_gravacao_arquivo:
+        pos: [79,86]
+        picture: '9(8)'
+        required: true
+      hora_gravacao_arquivo:
+        pos: [87,92]
+        picture: '9(6)'
+        required: true
+      densidade_gravacao_arquivo_fita:
+        pos: [93,97]
+        picture: 'X(5)'
+        required: false
+      unidade_gravacao_arquivo_fita:
+        pos: [98,100]
+        picture: 'X(3)'
+        required: false
+      identificacao_modulo_micro:
+        pos: [101,105]
+        picture: 'X(5)'
+      uso_empresa:
+        pos: [107,180]
+        picture: 'X(74)'
+      brancos_1:
+        pos: [181,260]
+        picture: 'X(80)'
+      brancos_2:
+        pos: [261,477]
+        picture: 'X(217)'
+      numero_lista_debito:
+        pos: [478,486]
+        picture: '9(9)'
+        required: true
+      brancos_3:
+        pos: [487,494]
+        picture: 'X(8)'
+      numero_sequencial_registro:
+        pos: [495,500]
+        picture: '9(6)'
+        default: '000001'
+        required: true
+
+    arquivo_remessa:
+      tipo_registro:
+        pos: [1,1]
+        picture: '9(1)'
+        required: true
+      tipo_inscricao_fornecedor:
+        # 1=CPF, 2=CNPJ 3=Outros
+        pos: [2,2]
+        picture: '9(1)'
+        required: true
+      numero_inscricao_fornecedor:
+        pos: [3,11]
+        picture: '9(9)'
+        required: true
+      numero_filial_fornecedor:
+        pos: [12,15]
+        picture: '9(4)'
+        required: false
+      verificador_fornecedor:
+        pos: [16,17]
+        picture: '9(2)'
+        required: true
+      nome_fornecedor:
+        pos: [18,47]
+        picture: 'X(30)'
+        required: true
+      endereco_fornecedor:
+        pos: [48,87]
+        picture: 'X(40)'
+      cep_fornecedor:
+        pos: [88,92]
+        picture: 'N(5)'
+      cep_complemento:
+        pos: [93,95]
+        picture: 'N(3)'
+      numero_banco_fornecedor:
+        pos: [96,98]
+        picture: 'N(3)'
+        required: true
+      agencia_fornecedor:
+        pos: [99,103]
+        picture: 'N(3)'
+        required: true
+      digito_agencia_fornecedor:
+        pos: [104,104]
+        picture: 'X(1)'
+        required: true
+      conta_corrente_fornecedor:
+        pos: [105,117]
+        picture: 'N(13)'
+        required: true
+      digito_conta_corrente_fornecedor:
+        pos: [118,119]
+        picture: 'X(2)'
+        required: true
+      numero_pagamento:
+        pos: [120,135]
+        picture: 'X(16)'
+      carteira:
+        pos: [136,138]
+        picture: 'N(3)'
+      nosso_numero:
+        pos: [139,150]
+        picture: 'N(12)'
+        required: false
+      seu_numero:
+        pos: [151,165]
+        picture: 'X(15)'
+        required: false
+      data_vencimento:
+        # Formato: AAAAMMDD
+        pos: [166,173]
+        picture: 'N(8)'
+
+      data_emissao_documento:
+        # Formato: AAAAMMDD
+        pos: [174,181]
+        picture: 'N(8)'
+      data_limite_desconto:
+      # Formato: AAAAMMDD
+        pos: [182,189]
+        picture: 'N(8)'
+      zero:
+        pos: [190,190]
+        picture: 'N(1)'
+      fator_vencimento:
+        pos: [191,194]
+        picture: 'N(4)'
+      valor_documento:
+        pos: [195,204]
+        picture: 'N(10)'
+      valor_pagamento:
+        # Valor do documento - (Desconto + Acréscimo)
+        pos: [204,219]
+        picture: 'N(15)'
+      valor_desconto:
+        pos: [220,234]
+        picture: 'N(15)'
+      valor_acrescimo:
+        pos: [235,249]
+        picture: 'N(15)'
+      tipo_documento:
+        # 01: Nota Fiscal / Fatura
+        # 02: Fatura
+        # 03: Nota Fiscal
+        # 04: Duplicata
+        # 05: Outros  
+        pos: [250,251]
+        picture: 'N(2)'
+      numero_documento:
+        pos: [252,261]
+        picture: 'N(10)'
+      serie_documento:
+        pos: [262,263]
+        picture: 'X(2)'
+        required: false
+      modalidade_pagamento:
+        # 01: Crédito em c/c
+        # 02: Cheque
+        # 03: DOC Compe
+        # 05: Crédito em conta real time
+        # 08: TED
+        # 30: Rastreamento de títulos
+        # 31: Título Terceiros
+
+        pos: [264,265]
+        picture: 'N(2)'
+      data_efetivacao_pagamento:
+        pos: [266,273]
+        picture: 'N(8)'
+      moeda:
+        pos: [274,276]
+        picture: 'X(3)'
+      situacao_agendamento:
+        pos: [277,278]
+        picture: 'N(2)'
+      tipo_movimento:
+        # 0: Inclusão
+        # 5: Alteração
+        # 9: Exclusão
+        pos: [289,289]
+        picture: 'N(1)'
+      codigo_movimento:
+        # 00: Autoriza Agendamento
+        # 25: Desautoriza Agendamento
+        # 50: Efetuar alegação
+        pos: [290,291]
+        picture: 'N(2)'
+      horario_consulta_saldo_realtime:
+        pos: [292,295]
+        picture: 'X(4)'
+      brancos_1:
+        pos: [326,331]
+        picture: 'X(6)'
+      reserva_sacador_avalista:
+        pos: [332,371]
+        picture: 'X(40)'
+      brancos_2:
+        pos: [372,372]
+        picture: 'X(1)'
+      complemento_informacoes_pagamento:
+        pos: [374,413]
+        picture: 'X(40)'
+      codigo_area_empresa:
+        # Uso da empresa para identificar origem
+        # do pagamento
+        pos: [414,415]
+        picture: 'N(2)'
+      uso_empresa:
+        pos: [416,450]
+        picture: 'X(35)'
+      brancos_3:
+        pos: [451,472]
+        picture: 'X(22)'
+      codigo_lancamento:
+        # Exclusivo para as modalidades 01, 02, 03, 05 e 08
+        # Código de lançamento no extrato de c/c
+        pos: [473,477]
+        picture: 'N(1)'
+      brancos_4:
+        pos: [478,478]
+        picture: 'X(1)'
+      tipo_conta_fornecedor:
+        pos: [479,479]
+        picture: 'N(1)'
+      conta_complementar:
+        pos: [480,486]
+        picture: 'N(7)'
+      brancos_5:
+        pos: [487,494]
+        picture: 'X(8)'
+      numero_sequencial_registro:
+        pos: [495,500]
+        picture: 'N(6)'
+
+    trailer_arquivo:
+      tipo_registro:
+        pos: [1,1]
+        picture: '9(1)'
+      quantidade_registros: 
+        pos: [2,7]
+        picture: '9(6)'
+        required: true
+      total_valores_pagamento:
+        pos: [8,24]
+        picture: '9(17)'
+        required: true
+      brancos:
+        pos: [25,494]
+        picture: 'X(470)'
+      numero_sequencial_registro:
+        pos: [495,500]
+        picture: '9(6)'
+        required: true
+
+        # Os quatro dígitos subsequentes indicam a filial que (20-23)
+        # está realizando o pagamento. 
+        # Os dois próximos dígitos são um dígito de control. (24-25)

@@ -264,6 +264,8 @@ remessa:
       default: ''
 
   detalhes:
+
+    # A,B,C,D,E,F,Z
     # segmentos
     # - Segmento A - (Obrigatório)
     # - Segmento B - (Opcional, quando for necessária emissão de aviso ao favorecido ou quando contratado o envio de Demonstrativo de Pagamentos via e-mail)
@@ -286,7 +288,7 @@ remessa:
       numero_registro:
         pos: [9,13]
         picture: '9(5)'
-      segmento_codigo:
+      segmento:
         pos: [14,14]
         picture: 'X(1)'
         default: 'A'
@@ -383,7 +385,7 @@ remessa:
       numero_registro:
         pos: [9,13]
         picture: '9(5)'
-      codigo_segmento:
+      segmento:
         pos: [14,14]
         picture: 'X(1)'
         default: 'B'
@@ -445,7 +447,7 @@ remessa:
       numero_registro:
         pos: [9,13]
         picture: '9(5)'
-      codigo_segmento:
+      segmento:
         pos: [14,14]
         picture: 'X(1)'
         default: 'C'
@@ -516,7 +518,7 @@ remessa:
       numero_registro:
         pos: [9,13]
         picture: '9(5)'
-      codigo_segmento:
+      segmento:
         pos: [14,14]
         picture: 'X(1)'
         default: 'D'
@@ -602,7 +604,7 @@ remessa:
       numero_registro:
         pos: [9,13]
         picture: '9(5)'
-      codigo_segmento:
+      segmento:
         pos: [14,14]
         picture: 'X(1)'
         default: 'E'
@@ -640,7 +642,7 @@ remessa:
       numero_registro:
         pos: [9,13]
         picture: '9(5)'
-      codigo_segmento:
+      segmento:
         pos: [14,14]
         picture: 'X(1)'
         default: 'F'
@@ -674,7 +676,7 @@ remessa:
       numero_registro:
         pos: [9,13]
         picture: '9(5)'
-      codigo_segmento:
+      segmento:
         pos: [14,14]
         picture: 'X(1)'
         default: 'Z'
@@ -695,6 +697,282 @@ remessa:
         pos: [119,240]
         picture: 'X(122)'
         default: ''
+
+# J,J-52
+    segmento_j:
+      codigo_banco:
+        pos: [1,3]
+        picture: '9(3)'
+        default: 341
+      codigo_lote:
+        pos: [4,7]
+        picture: '9(4)'
+        default: '0000'
+      tipo_registro:
+        pos: [8,8]
+        picture: '9(1)'
+        default: ''
+      numero_registro:
+        pos: [9,13]
+        picture: '9(5)'
+      segmento:
+        pos: [14,14]
+        picture: 'X(1)'
+        default: 'J'
+      tipo_movimento:
+        pos: [15,17]
+        picture: '9(3)'
+      banco_favorecido:
+        pos: [18,20]
+        picture: '9(3)'
+      moeda:
+        pos: [21,21]
+        picture: '9(1)'
+      digito_verificador:
+        pos: [22,22]
+        picture: '9(1)'
+      vencimento:
+        # fator de vencimento
+        pos: [23,26]
+        picture: '9(3)'
+      valor:
+        pos: [27,36]
+        picture: '9(10)'
+      campo_livre:
+        pos: [37,61]
+        picture: '9(25)'
+      nome_favorecido:
+        pos: [62,91]
+        picture: 'X(30)'
+      data_vencimento:
+        ## DDMMAAAA
+        pos: [92,99]
+        picture: '9(8)'
+      valor_titulo:
+        pos: [100,114]
+        picture: '9(15)'
+      descontos:
+        pos: [115,129]
+        picture: '9(15)'
+      acrescimos:
+        pos: [130,144]
+        picture: '9(15)'
+      data_pagamento:
+        pos: [145,152]
+        picture: '9(8)'
+      valor_pagamento:
+        pos: [153,167]
+        picture: '9(15)'
+      zeros:
+        pos: [168,182]
+        picture: '9(15)'
+      seu_numero:
+        pos: [183,202]
+        picture: 'X(20)'
+      brancos:
+        pos: [203,215]
+        picture: 'X(13)'
+      nosso_numero:
+        pos: [216,230]
+        picture: 'X(15)'
+      ocorrencias:
+        pos: [231,240]
+        picture: 'X(10)'
+    
+    segmento_j52:
+      codigo_banco:
+        pos: [1,3]
+        picture: '9(3)'
+        default: 341
+      codigo_lote:
+        pos: [4,7]
+        picture: '9(4)'
+        default: '0000'
+      tipo_registro:
+        pos: [8,8]
+        picture: '9(1)'
+        default: ''
+      numero_registro:
+        pos: [9,13]
+        picture: '9(5)'
+      segmento:
+        pos: [14,14]
+        picture: 'X(1)'
+        default: 'J'
+      tipo_movimento:
+        pos: [15,17]
+        picture: '9(3)'
+      codigo_registro:
+        pos: [18,19]
+        picture: '9(2)'
+      tipo_inscricao_pagador:
+        # 1 - CPF
+        # 2 - CNPJ
+        pos: [20,20]
+        picture: '9(1)'
+      numero_inscricao_pagador:
+        pos: [21,35]
+        picture: '9(15)'
+      nome_pagador:
+        pos: [36,75]
+        picture: 'X(40)'
+      tipo_inscricao_beneficiario:
+        pos: [76,76]
+        picture: '9(1)'
+      numero_inscricao_beneficiario:
+        pos: [77,91]
+        picture: '9(15)'
+      nome_beneficiario:
+        pos: [92,131]
+        picture: 'X(40)'
+      tipo_inscricao_sacador:
+        pos: [132,132]
+        picture: '9(1)'
+      numero_inscricao_sacador:
+        pos: [133,147]
+        picture: '9(15)'
+      nome_sacador:
+        pos: [148,187]
+        picture: 'X(40)'
+      brancos_01:
+        pos: [188,240]
+        picture: 'X(53)'
+
+    segmento_n:
+      codigo_banco_compensacao:
+        pos: [1,3]
+        picture: '9(3)'
+      codigo_lote:
+        pos: [4,7]
+        picture: '9(4)'
+      tipo_registro:
+        pos: [8,8]
+        picture: '9(1)'
+      numero_registro:
+        pos: [9,13]
+        picture: '9(5)'
+      segmento:
+        pos: [14,14]
+        picture: 'X(1)'
+        default: 'N'
+      tipo_movimento:
+        pos: [15,17]
+        picture: '9(3)'
+      dados_tributo:
+        pos: [18,195]
+        picture: 'X(178)'
+      seu_numero:
+        pos: [196,215]
+        picture: 'X(15)'
+      nosso_numero:
+        pos: [216,230]
+        picture: 'X(15)'
+      ocorrencias:
+        pos: [231,240]
+        picture: 'X(10)'
+
+    segmento_o:
+      codigo_banco_compensacao:
+        pos: [1,3]
+        picture: '9(3)'
+      codigo_lote:
+        pos: [4,7]
+        picture: '9(4)'
+      tipo_registro:
+        pos: [8,8]
+        picture: '9(1)'
+      numero_registro:
+        pos: [9,13]
+        picture: '9(5)'
+      segmento:
+        pos: [14,14]
+        picture: 'X(1)'
+        default: 'O'
+      tipo_movimento:
+        pos: [15,17]
+        picture: '9(3)'
+      codigo_barras:
+        pos: [18,65]
+        picture: 'X(48)'
+      nome:
+        pos: [66,95]
+        picture: 'X(30)'
+      data_vencimento:
+        pos: [96,103]
+        picture: '9(8)'
+      moeda:
+        pos: [104,106]
+        picture: 'X(3)'
+      quantidade_moeda:
+        pos: [107,121]
+        picture: '9(7)V9(8)'
+      valor_a_pagar:
+        pos: [122,136]
+        picture: '9(15)'
+      data_pagamento:
+        pos: [137,144]
+        picture: '9(8)'
+      valor_pago:
+        pos: [145,159]
+        picture: '9(15)'
+      brancos_1:
+        pos: [160,162]
+        picture: 'X(3)'
+      nota_fiscal:
+        pos: [163, 171]
+        picture: '9(9)'
+      brancos_2:
+        pos: [172,174]
+        picture: 'X(3)'
+      seu_numero:
+        pos: [175,194]
+        picture: 'X(20)'
+      brancos_3:
+        pos: [195,215]
+        picture: 'X(21)'
+      nosso_numero:
+        pos: [216,230]
+        picture: 'X(15)'
+      ocorrencias:
+        pos: [231,240]
+        picture: 'X(10)'
+
+    segmento_w:
+      codigo_banco_compensacao:
+        pos: [1,3]
+        picture: '9(3)'
+      codigo_lote:
+        pos: [4,7]
+        picture: '9(4)'
+      tipo_registro:
+        pos: [8,8]
+        picture: '9(1)'
+      numero_registro:
+        pos: [9,13]
+        picture: '9(5)'
+      segmento:
+        pos: [14,14]
+        picture: 'X(1)'
+        default: 'W'
+      brancos_1:
+        pos: [15,16]
+        picture: 'X(2)'
+      informacao_1:
+        pos: [17,56]
+        picture: 'X(40)'
+      informacao_2:
+        pos: [57,96]
+        picture: 'X(40)'
+      informacao_3:
+        pos: [97,136]
+        picture: 'X(40)'
+      informacao_4:
+        pos: [137,176]
+        picture: 'X(10)'
+      brancos_2:
+        pos: [177,240]
+        picture: 'X(64)'
+  
 
 retorno:
   header_arquivo:
@@ -959,7 +1237,7 @@ retorno:
       numero_registro:
         pos: [9,13]
         picture: '9(5)'
-      segmento_codigo:
+      segmento:
         pos: [14,14]
         picture: 'X(1)'
         default: 'A'
@@ -1056,7 +1334,7 @@ retorno:
       numero_registro:
         pos: [9,13]
         picture: '9(5)'
-      codigo_segmento:
+      segmento:
         pos: [14,14]
         picture: 'X(1)'
         default: 'B'
@@ -1118,7 +1396,7 @@ retorno:
       numero_registro:
         pos: [9,13]
         picture: '9(5)'
-      codigo_segmento:
+      segmento:
         pos: [14,14]
         picture: 'X(1)'
         default: 'C'
@@ -1189,7 +1467,7 @@ retorno:
       numero_registro:
         pos: [9,13]
         picture: '9(5)'
-      codigo_segmento:
+      segmento:
         pos: [14,14]
         picture: 'X(1)'
         default: 'D'
@@ -1275,7 +1553,7 @@ retorno:
       numero_registro:
         pos: [9,13]
         picture: '9(5)'
-      codigo_segmento:
+      segmento:
         pos: [14,14]
         picture: 'X(1)'
         default: 'E'
@@ -1313,7 +1591,7 @@ retorno:
       numero_registro:
         pos: [9,13]
         picture: '9(5)'
-      codigo_segmento:
+      segmento:
         pos: [14,14]
         picture: 'X(1)'
         default: 'F'
@@ -1347,7 +1625,7 @@ retorno:
       numero_registro:
         pos: [9,13]
         picture: '9(5)'
-      codigo_segmento:
+      segmento:
         pos: [14,14]
         picture: 'X(1)'
         default: 'Z'
